@@ -6,6 +6,7 @@ using UnityEngine.Purchasing;
 public class IAPManager : MonoBehaviour, IStoreListener
 {
     public static IAPManager instance;
+    public Unlockable unlockable;
 
     private static IStoreController m_StoreController;
     private static IExtensionProvider m_StoreExtensionProvider;
@@ -14,6 +15,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
     //private string removeAds = "";
     private string coin10000 = "coin_10000";
     private string coin50000 = "coin_50000";
+    private string skin150k = "skin150k";
+    private string skin250k = "skin250k";
 
 
     //************************** Adjust these methods **************************************
@@ -24,7 +27,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         //Step 2 choose if your product is a consumable or non consumable
         
-        //builder.AddProduct(removeAds, ProductType.Consumable);
+        builder.AddProduct(skin150k, ProductType.NonConsumable);
+        builder.AddProduct(skin250k, ProductType.NonConsumable);
         builder.AddProduct(coin10000, ProductType.Consumable);
         builder.AddProduct(coin50000, ProductType.Consumable);
 
@@ -40,11 +44,16 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     //Step 3 Create methods
 
-    //public void RemoveAds()
-    //{
-    //    BuyProductID(RemoveAds);
-    //}
+    public void Skin150k()
+    {
+        BuyProductID(skin150k);
+    }
     
+    public void Skin250k()
+    {
+        BuyProductID(skin250k);
+    }
+
     public void BuyCoin10000()
     {
         BuyProductID(coin10000);
@@ -59,11 +68,17 @@ public class IAPManager : MonoBehaviour, IStoreListener
     //Step 4 modify purchasing
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
-        //if (String.Equals(args.purchasedProduct.definition.id, removeAds, StringComparison.Ordinal))
-        //{
-        //    Debug.Log("Remove Ads");
-        //}
-        if (String.Equals(args.purchasedProduct.definition.id, coin10000, StringComparison.Ordinal))
+        if (String.Equals(args.purchasedProduct.definition.id, skin150k, StringComparison.Ordinal))
+        {          
+            GameState.gameState.coins += 50000;
+            Debug.Log("Pack Skin 1");
+        }
+        else if (String.Equals(args.purchasedProduct.definition.id, skin250k, StringComparison.Ordinal))
+        {
+            GameState.gameState.coins += 50000;
+            Debug.Log("Pack Skin 2");
+        }
+        else if (String.Equals(args.purchasedProduct.definition.id, coin10000, StringComparison.Ordinal))
         {
             GameState.gameState.coins += 10000;
             Debug.Log("give 10,000 coins to the player");

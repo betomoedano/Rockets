@@ -24,7 +24,16 @@ public class AsteroidController : MonoBehaviour
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void DestroyAllGameObjects(string tag)
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(tag);
+         for(int i=0; i< enemies.Length; i++)
+         {
+             Destroy(enemies[i]);
+         }
+    }
+     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "shield")
         {
@@ -37,6 +46,7 @@ public class AsteroidController : MonoBehaviour
             GameObject character = GameObject.Find("Character");
             character.SetActive(false);
             Destroy(gameObject);
+            DestroyAllGameObjects("Missile");
             NotificationCenter.DefaultCenter().PostNotification(this, "CharacterHasDead");
         }
        

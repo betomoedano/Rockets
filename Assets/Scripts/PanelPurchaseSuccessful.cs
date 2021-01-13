@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PanelPurchaseSuccessful : MonoBehaviour
 {
-
     public GameObject panelPurchaseSuccessful;
     public GameObject scrollView;
 

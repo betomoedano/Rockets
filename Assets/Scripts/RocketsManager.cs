@@ -28,10 +28,11 @@ public class RocketsManager : MonoBehaviour
 
     public void BuyRocket1()
     {
-        if(GameState.gameState.coins > 5000)
+        if(GameState.gameState.coins >= 5000)
         {
             GameState.gameState.coins -= 5000;
             GameState.gameState.SaveData();
+            FoxController.currentSkin = "8";
             scrollView.SetActive(false); 
             purchaseSucces.SetActive(true);
             unlockable.hasRocket1 = true;
@@ -46,43 +47,110 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyRocket2()
     {
-        unlockable.hasRocket2 = true;
-        RenderShop();
-        SaveJson();
+        if(GameState.gameState.coins >= 10000)
+        {
+            GameState.gameState.coins -= 10000;
+            GameState.gameState.SaveData();
+            FoxController.currentSkin = "3";
+            scrollView.SetActive(false); 
+            purchaseSucces.SetActive(true);
+            unlockable.hasRocket2 = true;
+            RenderShop();
+            SaveJson();
+        }
+        else
+        {
+            scrollView.SetActive(false);
+            notMoney.SetActive(true);
+        }
     }
     public void BuyRocket3()
     {
-        unlockable.hasRocket3 = true;
-        RenderShop();
-        SaveJson();
+        if(GameState.gameState.coins >= 20000)
+        {
+            GameState.gameState.coins -= 20000;
+            GameState.gameState.SaveData();
+            FoxController.currentSkin = "9";
+            scrollView.SetActive(false); 
+            purchaseSucces.SetActive(true);
+            unlockable.hasRocket3 = true;
+            RenderShop();
+            SaveJson();
+        }
+        else
+        {
+            scrollView.SetActive(false);
+            notMoney.SetActive(true);
+        }
     }
     public void BuyRocket4()
     {
-        unlockable.hasRocket4 = true;
-        RenderShop();
-        SaveJson();
+        if(GameState.gameState.coins >= 15000)
+        {
+            GameState.gameState.coins -= 15000;
+            GameState.gameState.SaveData();
+            FoxController.currentSkin = "11";
+            scrollView.SetActive(false); 
+            purchaseSucces.SetActive(true);
+            unlockable.hasRocket4 = true;
+            RenderShop();
+            SaveJson();
+        }
+        else
+        {
+            scrollView.SetActive(false);
+            notMoney.SetActive(true);
+        }
     }
     public void BuyRocket5()
     {
-        unlockable.hasRocket5 = true;
-        RenderShop();
-        SaveJson();
+        if(GameState.gameState.coins >= 20000)
+        {
+            GameState.gameState.coins -= 20000;
+            GameState.gameState.SaveData();
+            FoxController.currentSkin = "10";
+            scrollView.SetActive(false); 
+            purchaseSucces.SetActive(true);
+            unlockable.hasRocket5 = true;
+            RenderShop();
+            SaveJson();
+        }
+        else
+        {
+            scrollView.SetActive(false);
+            notMoney.SetActive(true);
+        }
     }
     public void BuyRocket6()
     {
-        unlockable.hasRocket6 = true;
-        RenderShop();
-        SaveJson();
+        if(GameState.gameState.coins >= 20000)
+        {
+            GameState.gameState.coins -= 20000;
+            GameState.gameState.SaveData();
+            FoxController.currentSkin = "7";
+            scrollView.SetActive(false); 
+            purchaseSucces.SetActive(true);
+            unlockable.hasRocket6 = true;
+            RenderShop();
+            SaveJson();
+        }
+        else
+        {
+            scrollView.SetActive(false);
+            notMoney.SetActive(true);
+        }
     }
     public void BuyPack1()
     {
         unlockable.hasPack1 = true;
+        FoxController.currentSkin = "GOLDEN10";
         RenderShop();
         SaveJson();
     }
     public void BuyPack2()
     {
         unlockable.hasPack2 = true;
+        FoxController.currentSkin = "Golden";
         RenderShop();
         SaveJson();
     }
