@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class SkinManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void LoadSkinRocket1()
     {
         FoxController.currentSkin = "8";
@@ -24,11 +18,11 @@ public class SkinManager : MonoBehaviour
     }
     public void LoadSkinRocket4()
     {
-        FoxController.currentSkin = "5";
+        FoxController.currentSkin = "11";
     }
     public void LoadSkinRocket5()
     {
-        FoxController.currentSkin = "4";
+        FoxController.currentSkin = "10";
     }
     public void LoadSkinRocket6()
     {

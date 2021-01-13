@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -95.15723}
-  m_SizeDelta: {x: 974.4973, y: 219.72}
+  m_AnchoredPosition: {x: 0, y: -70.812}
+  m_SizeDelta: {x: 1698.2397, y: 382.9}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &64451483
 MonoBehaviour:
@@ -183,7 +183,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ceff990a1e2da8b479fd97946797cc78, type: 3}
-    m_FontSize: 299
+    m_FontSize: 245
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 9
@@ -358,7 +358,7 @@ RectTransform:
   m_GameObject: {fileID: 94587718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75586, y: 0.75586, z: 0.75586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2008488560}
   m_RootOrder: 4
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 174609710}
   - component: {fileID: 174609709}
   m_Layer: 5
-  m_Name: PauseButton (2)
+  m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1613,8 +1613,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 30}
-  m_SizeDelta: {x: 174.5078, y: 26.3285}
+  m_AnchoredPosition: {x: 10, y: 10}
+  m_SizeDelta: {x: 99.7013, y: 28.821}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &410386712
 MonoBehaviour:
@@ -7431,7 +7431,7 @@ RectTransform:
   m_GameObject: {fileID: 992353846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75586, y: 0.75586, z: 0.75586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2008488560}
   m_RootOrder: 3
@@ -8122,7 +8122,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.000002861, y: 26.6168}
-  m_SizeDelta: {x: 174.51, y: 26.2133}
+  m_SizeDelta: {x: 97.888, y: 26.2133}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1276682734
 MonoBehaviour:
@@ -8471,8 +8471,8 @@ MonoBehaviour:
   youFlew: {fileID: 69643904}
   bestFly: {fileID: 208571864}
   points: {fileID: 519420034}
-  score: {fileID: 1903019206}
-  distance: {fileID: 863979119}
+  score: {fileID: 211846617}
+  distance: {fileID: 1406873110}
 --- !u!95 &1303433178
 Animator:
   serializedVersion: 3
@@ -9453,7 +9453,7 @@ GameObject:
   - component: {fileID: 1871091464}
   - component: {fileID: 1871091463}
   m_Layer: 5
-  m_Name: PauseButton (1)
+  m_Name: ReloadButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9687,7 +9687,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 30.699219, y: -0.0000019073486}
-  m_SizeDelta: {x: 43.448, y: 65.9237}
+  m_SizeDelta: {x: 52.4789, y: 65.9237}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985130101
 MonoBehaviour:
@@ -10196,7 +10196,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: acf5ae9eef76f084095898c4b7108067,
+      objectReference: {fileID: 21300000, guid: 2c5fe4fde2409a2448cc70b7a9ba328d,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d8d9a181fe2cc5469bef0501f44ed8a, type: 3}

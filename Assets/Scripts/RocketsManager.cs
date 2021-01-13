@@ -11,6 +11,8 @@ public class RocketsManager : MonoBehaviour
     public GameObject label1, label2, label3, label4, label5, label6, label7, label8;
     public GameObject useRocket1, useRocket2, useRocket3, useRocket4, useRocket5, useRocket6, usePack1, usePack2;
 
+    public GameObject purchaseSucces, notMoney, scrollView;
+
 
     void Start()
     {
@@ -26,9 +28,21 @@ public class RocketsManager : MonoBehaviour
 
     public void BuyRocket1()
     {
-        unlockable.hasRocket1 = true;
-        RenderShop();
-        SaveJson();
+        if(GameState.gameState.coins > 5000)
+        {
+            GameState.gameState.coins -= 5000;
+            GameState.gameState.SaveData();
+            scrollView.SetActive(false); 
+            purchaseSucces.SetActive(true);
+            unlockable.hasRocket1 = true;
+            RenderShop();
+            SaveJson();
+        }
+        else
+        {
+            scrollView.SetActive(false);
+            notMoney.SetActive(true);
+        }
     }
     public void BuyRocket2()
     {
