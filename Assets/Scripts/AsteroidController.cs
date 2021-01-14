@@ -41,8 +41,8 @@ public class AsteroidController : MonoBehaviour
         }
         else if (collision.tag == "Player")
         {
+            Instantiate(explotionParticles, collision.transform.position, Quaternion.identity);
             Time.timeScale = 1f;
-            Instantiate(explotionParticles, transform.position, Quaternion.identity);
             GameObject character = GameObject.Find("Character");
             character.SetActive(false);
             Destroy(gameObject);

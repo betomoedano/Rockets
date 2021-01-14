@@ -6,13 +6,10 @@ public class RocketsManager : MonoBehaviour
 {
     public Unlockable unlockable;
     private string unlockablePath;
-
     public Button rocket1, rocket2, rocket3, rocket4, rocket5, rocket6, pack1, pack2;
     public GameObject label1, label2, label3, label4, label5, label6, label7, label8;
     public GameObject useRocket1, useRocket2, useRocket3, useRocket4, useRocket5, useRocket6, usePack1, usePack2;
-
     public GameObject purchaseSucces, notMoney, scrollView;
-
 
     void Start()
     {
@@ -142,19 +139,24 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyPack1()
     {
-        unlockable.hasPack1 = true;
-        FoxController.currentSkin = "GOLDEN10";
-        RenderShop();
-        SaveJson();
+        if(IAPManager.hasPurchasedPack1 == true)
+        {
+            unlockable.hasPack1 = true;
+            FoxController.currentSkin = "GOLDEN10";
+            RenderShop();
+            SaveJson(); 
+        }
     }
     public void BuyPack2()
     {
-        unlockable.hasPack2 = true;
-        FoxController.currentSkin = "Golden";
-        RenderShop();
-        SaveJson();
+        if(IAPManager.hasPurchasedPack2 == true)
+        {
+            unlockable.hasPack2 = true;
+            FoxController.currentSkin = "Golden";
+            RenderShop();
+            SaveJson();
+        }
     }
-
     public void RenderShop()
     {
 
@@ -207,12 +209,9 @@ public class RocketsManager : MonoBehaviour
             usePack2.SetActive(true);
         }
     }
-
     private void SaveJson()
     {
         string json = JsonUtility.ToJson(unlockable);
         File.WriteAllText(unlockablePath, json);
     }
-
-
 }

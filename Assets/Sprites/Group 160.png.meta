@@ -1,7 +1,16 @@
 fileFormatVersion: 2
 guid: 990a515b1d1caed4f992d74075d15542
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4145529207774348561
+    second: Group 160_0
+  - first:
+      213: 4256217349762856392
+    second: Group 160_1
+  - first:
+      213: 7585874949461112340
+    second: Group 160_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +122,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Group 160_0
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 101
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 115856bb9d0e78930800000000000000
+      internalID: 4145529207774348561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Group 160_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 54
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c53873112f111b30800000000000000
+      internalID: 4256217349762856392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Group 160_2
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 5
+        width: 39
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416f9292311764960800000000000000
+      internalID: 7585874949461112340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

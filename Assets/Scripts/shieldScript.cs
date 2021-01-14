@@ -13,8 +13,8 @@ public class shieldScript : MonoBehaviour
     {
         if(collision.tag == "Missile")
         {
+            Instantiate(explotion, collision.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
-            Instantiate(explotion, transform.position, Quaternion.identity);
             shield.SetActive(false);
             FoxController.shieldOn = false;
 

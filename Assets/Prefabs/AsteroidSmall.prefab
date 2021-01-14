@@ -114,5 +114,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   rotationSpeed: 50
-  explotionParticles: {fileID: 5151044133648584580, guid: 24ef2fc985c343446912f7c00300ee03,
+  explotionParticles: {fileID: 1938610351153950312, guid: 24ef2fc985c343446912f7c00300ee03,
     type: 3}

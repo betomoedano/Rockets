@@ -8,8 +8,11 @@ public class IAPManager : MonoBehaviour, IStoreListener
     public static IAPManager instance;
     public Unlockable unlockable;
 
+
     private static IStoreController m_StoreController;
     private static IExtensionProvider m_StoreExtensionProvider;
+
+    public static bool hasPurchasedPack1, hasPurchasedPack2;
 
     //Step 1 create your products
     //private string removeAds = "";
@@ -71,22 +74,20 @@ public class IAPManager : MonoBehaviour, IStoreListener
         if (String.Equals(args.purchasedProduct.definition.id, skin150k, StringComparison.Ordinal))
         {          
             GameState.gameState.coins += 50000;
-            Debug.Log("Pack Skin 1");
+            hasPurchasedPack1 = true;
         }
         else if (String.Equals(args.purchasedProduct.definition.id, skin250k, StringComparison.Ordinal))
         {
             GameState.gameState.coins += 50000;
-            Debug.Log("Pack Skin 2");
+            hasPurchasedPack2 = true;
         }
         else if (String.Equals(args.purchasedProduct.definition.id, coin10000, StringComparison.Ordinal))
         {
             GameState.gameState.coins += 10000;
-            Debug.Log("give 10,000 coins to the player");
         }
         else if (String.Equals(args.purchasedProduct.definition.id, coin50000, StringComparison.Ordinal))
         {
             GameState.gameState.coins += 50000;
-            Debug.Log("give 50,000 coins to the player");
         }
         else
         {
@@ -96,7 +97,6 @@ public class IAPManager : MonoBehaviour, IStoreListener
     }
 
     //**************************** Dont worry about these methods ***********************************
-
     
 
     private void Awake()

@@ -43,7 +43,7 @@ public class Points : MonoBehaviour{
     {
         //GameObject MainCamera = GameObject.Find("MainCamera");
         float aux = transform.position.x;
-        aux -= 7f;
+        aux -= 4f;
         distance.text = aux.ToString("0");
         distanceInt = (int)aux + 1;
     }
