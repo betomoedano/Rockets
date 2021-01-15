@@ -10,6 +10,7 @@ public class RocketsManager : MonoBehaviour
     public GameObject label1, label2, label3, label4, label5, label6, label7, label8;
     public GameObject useRocket1, useRocket2, useRocket3, useRocket4, useRocket5, useRocket6, usePack1, usePack2;
     public GameObject purchaseSucces, notMoney, scrollView;
+    public Image skinPack1, skinPack2;
 
     void Start()
     {
@@ -20,6 +21,14 @@ public class RocketsManager : MonoBehaviour
             string json = File.ReadAllText(unlockablePath);
             unlockable = JsonUtility.FromJson<Unlockable>(json);
         }
+        if(unlockable.hasPack1)
+        {
+            skinPack1.color = new Color(255,255,255);
+        }
+        if(unlockable.hasPack2)
+        {
+            skinPack2.color = new Color(255,255,255);
+        }
         RenderShop();
     }
 
@@ -29,7 +38,7 @@ public class RocketsManager : MonoBehaviour
         {
             GameState.gameState.coins -= 5000;
             GameState.gameState.SaveData();
-            FoxController.currentSkin = "8";
+            FoxController.currentSkin = "3";
             scrollView.SetActive(false); 
             purchaseSucces.SetActive(true);
             unlockable.hasRocket1 = true;
@@ -44,11 +53,11 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyRocket2()
     {
-        if(GameState.gameState.coins >= 10000)
+        if(GameState.gameState.coins >= 20000)
         {
-            GameState.gameState.coins -= 10000;
+            GameState.gameState.coins -= 20000;
             GameState.gameState.SaveData();
-            FoxController.currentSkin = "3";
+            FoxController.currentSkin = "12";
             scrollView.SetActive(false); 
             purchaseSucces.SetActive(true);
             unlockable.hasRocket2 = true;
@@ -63,9 +72,9 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyRocket3()
     {
-        if(GameState.gameState.coins >= 20000)
+        if(GameState.gameState.coins >= 15000)
         {
-            GameState.gameState.coins -= 20000;
+            GameState.gameState.coins -= 15000;
             GameState.gameState.SaveData();
             FoxController.currentSkin = "9";
             scrollView.SetActive(false); 
@@ -141,6 +150,7 @@ public class RocketsManager : MonoBehaviour
     {
         if(IAPManager.hasPurchasedPack1 == true)
         {
+            skinPack1.color = new Color(255,255,255);
             unlockable.hasPack1 = true;
             FoxController.currentSkin = "GOLDEN10";
             RenderShop();
@@ -151,6 +161,7 @@ public class RocketsManager : MonoBehaviour
     {
         if(IAPManager.hasPurchasedPack2 == true)
         {
+            skinPack2.color = new Color(255,255,255);
             unlockable.hasPack2 = true;
             FoxController.currentSkin = "Golden";
             RenderShop();

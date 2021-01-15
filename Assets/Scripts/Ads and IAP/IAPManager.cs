@@ -74,20 +74,24 @@ public class IAPManager : MonoBehaviour, IStoreListener
         if (String.Equals(args.purchasedProduct.definition.id, skin150k, StringComparison.Ordinal))
         {          
             GameState.gameState.coins += 50000;
+            GameState.gameState.SaveData();
             hasPurchasedPack1 = true;
         }
         else if (String.Equals(args.purchasedProduct.definition.id, skin250k, StringComparison.Ordinal))
         {
             GameState.gameState.coins += 50000;
+            GameState.gameState.SaveData();
             hasPurchasedPack2 = true;
         }
         else if (String.Equals(args.purchasedProduct.definition.id, coin10000, StringComparison.Ordinal))
         {
             GameState.gameState.coins += 10000;
+            GameState.gameState.SaveData();
         }
         else if (String.Equals(args.purchasedProduct.definition.id, coin50000, StringComparison.Ordinal))
         {
             GameState.gameState.coins += 50000;
+            GameState.gameState.SaveData();
         }
         else
         {

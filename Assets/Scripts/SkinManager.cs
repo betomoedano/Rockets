@@ -6,11 +6,11 @@ public class SkinManager : MonoBehaviour
 {
     public void LoadSkinRocket1()
     {
-        FoxController.currentSkin = "8";
+        FoxController.currentSkin = "3";
     }
     public void LoadSkinRocket2()
     {
-        FoxController.currentSkin = "3";
+        FoxController.currentSkin = "12";
     }
     public void LoadSkinRocket3()
     {
