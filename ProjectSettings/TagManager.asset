@@ -9,6 +9,7 @@ TagManager:
   - Generador
   - shield
   - Clock
+  - Lasik
   layers:
   - Default
   - TransparentFX

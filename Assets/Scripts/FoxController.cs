@@ -48,7 +48,21 @@ public class FoxController : MonoBehaviour {
             timer.SetActive(true);
             triggerClock = true;
         }
+        if(collision.tag == "Lasik")
+        {
+          
+        }
     }
+
+    public void DestroyAllGameObjects(string tag)
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(tag);
+         for(int i=0; i< enemies.Length; i++)
+         {
+             Destroy(enemies[i]);
+         }
+    }
+
 
     public void startCoroutine()
     {

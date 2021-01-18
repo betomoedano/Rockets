@@ -47,6 +47,8 @@ public class AsteroidController : MonoBehaviour
             character.SetActive(false);
             Destroy(gameObject);
             DestroyAllGameObjects("Missile");
+            DestroyAllGameObjects("Clock");
+            DestroyAllGameObjects("Coin");
             NotificationCenter.DefaultCenter().PostNotification(this, "CharacterHasDead");
         }
        

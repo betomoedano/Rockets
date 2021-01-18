@@ -11,6 +11,9 @@ public class Destructor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            DestroyAllGameObjects("Clock");
+            DestroyAllGameObjects("Missile");
+            DestroyAllGameObjects("Coin");
             Instantiate(explotion, other.transform.position, Quaternion.identity);
             Time.timeScale = 1f;
             NotificationCenter.DefaultCenter().PostNotification(this, "CharacterHasDead");
@@ -28,6 +31,15 @@ public class Destructor : MonoBehaviour
         //    child.parent = null;
        // }
 
+    }
+
+        public void DestroyAllGameObjects(string tag)
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(tag);
+         for(int i=0; i< enemies.Length; i++)
+         {
+             Destroy(enemies[i]);
+         }
     }
 
 }
