@@ -7,10 +7,6 @@ public class Generator : MonoBehaviour
     public GameObject[] obj;
     public float timeMin = .5f;
     public float timeMax = 1f;
-    //public Transform posA;
-    //public Transform posB;
-    //Vector3 nextPos;
-    //public float speed = 5f;
 
 
     void Start()

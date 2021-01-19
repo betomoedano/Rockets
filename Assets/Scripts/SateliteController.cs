@@ -29,18 +29,17 @@ public class SateliteController : MonoBehaviour
                 satelite2.SetActive(false);
                 lasik2.SetActive(false);
             }
-            if(transform.position.x > 200)
+            if(transform.position.x > 500)
             {
                 satelite3.SetActive(true);
             }
-            if(transform.position.x > 230)
+            if(transform.position.x > 530)
             {
                 lasik3.SetActive(true);
             }
-            if(transform.position.x > 300)
+            if(transform.position.x > 580)
             {
                 satelite3.SetActive(false);
             }
-
     }
 }

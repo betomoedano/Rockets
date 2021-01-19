@@ -48,10 +48,17 @@ public class FoxController : MonoBehaviour {
             timer.SetActive(true);
             triggerClock = true;
         }
-        if(collision.tag == "Lasik")
-        {
-          
-        }
+        // if(collision.tag == "Lasik")
+        // {
+        //     DestroyAllGameObjects("Clock");
+        //     DestroyAllGameObjects("Missile");
+        //     DestroyAllGameObjects("Coin");
+        //     Instantiate(explotion, collision.transform.position, Quaternion.identity);
+        //     Time.timeScale = 1f;
+        //     NotificationCenter.DefaultCenter().PostNotification(this, "CharacterHasDead");
+        //     GameObject character = GameObject.Find("Character");
+        //     character.SetActive(false);
+        // }
     }
 
     public void DestroyAllGameObjects(string tag)
