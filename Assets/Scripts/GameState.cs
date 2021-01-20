@@ -25,8 +25,6 @@ public class GameState : MonoBehaviour
 
      void Awake()
     {
-
-
         fileRute = Application.persistentDataPath + "data.dat";
         if(gameState == null)
         {

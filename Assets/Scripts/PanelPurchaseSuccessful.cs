@@ -10,6 +10,7 @@ public class PanelPurchaseSuccessful : MonoBehaviour
     // Start is called before the first frame update
     public void ClosingPanelPurchase()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         panelPurchaseSuccessful.SetActive(false);
         scrollView.SetActive(true);
     }

@@ -6,6 +6,11 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     public static AudioManager instance;
 
+
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("fondo");
+    }
     void Awake()
     {
         if(instance == null)
@@ -27,6 +32,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -36,5 +42,16 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.sourse.Play();
+    }
+
+    public void Mute(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found");
+            return;
+        }
+        s.sourse.Stop();
     }
 }

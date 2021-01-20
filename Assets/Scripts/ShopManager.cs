@@ -13,6 +13,7 @@ public class ShopManager : MonoBehaviour
 
     public void LoadMainScene()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         StartCoroutine(ShopExit());
         StartCoroutine(LoadMain());
     }

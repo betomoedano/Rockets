@@ -34,6 +34,7 @@ public class RocketsManager : MonoBehaviour
 
     public void BuyRocket1()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         if(GameState.gameState.coins >= 5000)
         {
             GameState.gameState.coins -= 5000;
@@ -53,6 +54,7 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyRocket2()
     {
+        FindObjectOfType<AudioManager>().Play("tap");        
         if(GameState.gameState.coins >= 20000)
         {
             GameState.gameState.coins -= 20000;
@@ -72,6 +74,7 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyRocket3()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         if(GameState.gameState.coins >= 15000)
         {
             GameState.gameState.coins -= 15000;
@@ -91,6 +94,7 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyRocket4()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         if(GameState.gameState.coins >= 15000)
         {
             GameState.gameState.coins -= 15000;
@@ -110,6 +114,7 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyRocket5()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         if(GameState.gameState.coins >= 20000)
         {
             GameState.gameState.coins -= 20000;
@@ -129,6 +134,7 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyRocket6()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         if(GameState.gameState.coins >= 20000)
         {
             GameState.gameState.coins -= 20000;
@@ -148,6 +154,7 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyPack1()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         if(IAPManager.hasPurchasedPack1 == true)
         {
             skinPack1.color = new Color(255,255,255);
@@ -159,6 +166,7 @@ public class RocketsManager : MonoBehaviour
     }
     public void BuyPack2()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         if(IAPManager.hasPurchasedPack2 == true)
         {
             skinPack2.color = new Color(255,255,255);

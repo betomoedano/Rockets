@@ -19,6 +19,7 @@ public class ShieldButton : MonoBehaviour
     {
         if(GameState.gameState.coins >= price)
         {
+            FindObjectOfType<AudioManager>().Play("tap");
             shield.SetActive(true);
             GameState.gameState.coins -= price;
             GameState.gameState.SaveData();
@@ -26,6 +27,7 @@ public class ShieldButton : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<AudioManager>().Play("losing");
             Debug.Log("Not enough coins!!");
         }
     }

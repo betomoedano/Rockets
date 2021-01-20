@@ -25,12 +25,14 @@ public class GameOverScreen : MonoBehaviour
 
     public void RestartScene()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         NotificationCenter.DefaultCenter().PostNotification(this, "GameRestarted");
         SceneManager.LoadScene("MainScene");
         pauseButton.SetActive(true);
     }
     public void LoadShopScene()
     {
+        FindObjectOfType<AudioManager>().Play("tap");
         camaraGameOver.SetActive(false);
         startMenu.SetActive(false);
         StartCoroutine(LoadShop());

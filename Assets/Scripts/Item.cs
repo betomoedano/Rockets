@@ -11,6 +11,7 @@ public class Item : MonoBehaviour{
     {
         if(other.tag == "Player" && !trigger)
         {
+            FindObjectOfType<AudioManager>().Play("tap");
             trigger = true;
             Destroy(this.gameObject);
             //Instantiate(coinParticles, transform.position, Quaternion.identity);

@@ -11,6 +11,8 @@ public class Destructor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Mute("ticktock2");
+            FindObjectOfType<AudioManager>().Play("mine");
             DestroyAllGameObjects("Clock");
             DestroyAllGameObjects("Missile");
             DestroyAllGameObjects("Coin");

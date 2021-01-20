@@ -37,10 +37,13 @@ public class AsteroidController : MonoBehaviour
     {
         if (collision.tag == "shield")
         {
+            FindObjectOfType<AudioManager>().Play("mine");
             Destroy(gameObject);
         }
         else if (collision.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Mute("ticktock2");
+            FindObjectOfType<AudioManager>().Play("mine");
             Instantiate(explotionParticles, collision.transform.position, Quaternion.identity);
             Time.timeScale = 1f;
             GameObject character = GameObject.Find("Character");

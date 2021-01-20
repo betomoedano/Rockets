@@ -21,6 +21,7 @@ public class FoxController : MonoBehaviour {
     float secondsLeft = 3f;
     public bool takingAway = false;
     public bool triggerClock = false;
+    public bool taptoplay = false;
 
     private void Awake()
     {
@@ -44,6 +45,8 @@ public class FoxController : MonoBehaviour {
         }
         if(collision.tag == "Clock")
         {
+
+            FindObjectOfType<AudioManager>().Play("ticktock2");
             Destroy(collision.gameObject);
             timer.SetActive(true);
             triggerClock = true;
@@ -94,6 +97,7 @@ public class FoxController : MonoBehaviour {
             secondsLeft = 3;
             timer.SetActive(false);
             timerText.text = "3";
+            FindObjectOfType<AudioManager>().Mute("ticktock2");
         }
     }
 
@@ -101,6 +105,7 @@ public class FoxController : MonoBehaviour {
     {
         rb2D.constraints = RigidbodyConstraints2D.None;
         rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+        taptoplay = true;
     }
 
     void FixedUpdate()
@@ -125,6 +130,10 @@ public class FoxController : MonoBehaviour {
             //this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Ring");   
             if (moving)
             {      
+                if (Input.GetMouseButton(0) && taptoplay == true && triggerClock == false)
+                {
+                    FindObjectOfType<AudioManager>().Play("drop");
+                }
                 rb2D.isKinematic = false;
                 rb2D.velocity = new Vector3(speed, 0, 0);
                 Vector2 movement = new Vector2(0, 1);
