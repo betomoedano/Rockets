@@ -130,10 +130,6 @@ public class FoxController : MonoBehaviour {
             //this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Ring");   
             if (moving)
             {      
-                if (Input.GetMouseButton(0) && taptoplay == true && triggerClock == false)
-                {
-                    FindObjectOfType<AudioManager>().Play("drop");
-                }
                 rb2D.isKinematic = false;
                 rb2D.velocity = new Vector3(speed, 0, 0);
                 Vector2 movement = new Vector2(0, 1);

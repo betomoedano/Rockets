@@ -10388,7 +10388,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.data[5].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 28e9aeda981ccdf408dd5261aa56dee6, type: 3}
+      objectReference: {fileID: 8300000, guid: d13999d820731d042818d9e0d6d280cb, type: 3}
     - target: {fileID: 1251739074670952352, guid: 73cbddc3ec6b8f042b83a48adafde969,
         type: 3}
       propertyPath: sounds.Array.data[5].loop
@@ -10417,7 +10417,7 @@ PrefabInstance:
     - target: {fileID: 1251739074670952352, guid: 73cbddc3ec6b8f042b83a48adafde969,
         type: 3}
       propertyPath: sounds.Array.data[5].volume
-      value: 1
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1251739074670952353, guid: 73cbddc3ec6b8f042b83a48adafde969,
         type: 3}
