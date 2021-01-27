@@ -27,8 +27,9 @@ public class GameState : MonoBehaviour
      void Awake()
     {
         Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
-        fileRute = Application.persistentDataPath + "data.dat";
-        Debug.Log(fileRute);
+        fileRute = Application.persistentDataPath + "/data.dat";
+
+        //Debug.Log(fileRute);
         if(gameState == null)
         {
             gameState = this;

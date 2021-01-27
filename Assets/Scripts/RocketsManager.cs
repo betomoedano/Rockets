@@ -22,7 +22,7 @@ public class RocketsManager : MonoBehaviour
 
     void Start()
     {
-        unlockablePath = $"{Application.persistentDataPath}Unlockeable.json";
+        unlockablePath = Application.persistentDataPath + "/Unlockeable.json";
         //Debug.Log(unlockablePath);
         if (File.Exists(unlockablePath))
         {
