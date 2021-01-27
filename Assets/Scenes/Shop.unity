@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 10000
   bestFly: 0
+  isMuted: 0
 --- !u!224 &24270085 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7343527352165318819, guid: d193029690d9cc04e803aa00a9256ca2,
@@ -842,6 +843,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7885765416085409578, guid: a7f6bd3313b67304ca85058068762588,
+        type: 3}
+      propertyPath: isTestAd
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7885765416085409579, guid: a7f6bd3313b67304ca85058068762588,
         type: 3}
       propertyPath: m_RootOrder
@@ -911,6 +917,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AdManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885765416085409580, guid: a7f6bd3313b67304ca85058068762588,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7f6bd3313b67304ca85058068762588, type: 3}

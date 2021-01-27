@@ -1,6 +1,9 @@
 using UnityEngine.UI;
 using UnityEngine;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections;
+using System;
 
 public class RocketsManager : MonoBehaviour
 {
@@ -12,10 +15,15 @@ public class RocketsManager : MonoBehaviour
     public GameObject purchaseSucces, notMoney, scrollView;
     public Image skinPack1, skinPack2;
 
+    void Awake()
+    {
+        Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
+    }
+
     void Start()
     {
-        unlockablePath = $"{Application.persistentDataPath}/Unlockeable.json";
-        Debug.Log(unlockablePath);
+        unlockablePath = $"{Application.persistentDataPath}Unlockeable.json";
+        //Debug.Log(unlockablePath);
         if (File.Exists(unlockablePath))
         {
             string json = File.ReadAllText(unlockablePath);

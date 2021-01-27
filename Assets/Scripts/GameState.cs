@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour
 {
     public int coins = 0;
     public int bestFly = 0;
+    public bool isMuted = false;
     //public string currentSkin;
 
     public static GameState gameState;
@@ -25,7 +26,9 @@ public class GameState : MonoBehaviour
 
      void Awake()
     {
+        Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
         fileRute = Application.persistentDataPath + "data.dat";
+        Debug.Log(fileRute);
         if(gameState == null)
         {
             gameState = this;
@@ -44,6 +47,7 @@ public class GameState : MonoBehaviour
         DataToSave coinsToSave = new DataToSave();
         coinsToSave.coins = coins;
         coinsToSave.bestFly = bestFly;
+        coinsToSave.isMuted = isMuted;
         //coinsToSave.currentSkin = currentSkin;
 
         br.Serialize(file, coinsToSave);
@@ -61,6 +65,7 @@ public class GameState : MonoBehaviour
             DataToSave dataToSave = (DataToSave)br.Deserialize(file);
             coins = dataToSave.coins;
             bestFly = dataToSave.bestFly;
+            isMuted = dataToSave.isMuted;
             //currentSkin = dataToSave.currentSkin;
             file.Close();   
         }
@@ -68,6 +73,7 @@ public class GameState : MonoBehaviour
         {
             coins = 0;
             bestFly = 0;
+            isMuted = false;
             //currentSkin = null;
         }
            
@@ -79,5 +85,6 @@ class DataToSave
 {
     public int coins;
     public int bestFly;
+    public bool isMuted;
     //public string currentSkin;
 }

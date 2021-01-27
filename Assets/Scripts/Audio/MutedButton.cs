@@ -5,12 +5,25 @@ using UnityEngine.UI;
 
 public class MutedButton : MonoBehaviour
 {
-    bool muted;
+    bool muted = false;
     public GameObject butonMusic, buttonNoMusic;
 
+    public void Start()
+    {
+        if(GameState.gameState.isMuted == true)
+        {
+            pauseSound();
+        }
+        else if(GameState.gameState.isMuted == false)
+        {
+            NoPauseSound();
+        }
+    }
     public void pauseSound()
     {
-        muted = ! muted;
+        muted = true;
+        GameState.gameState.isMuted = muted;
+        GameState.gameState.SaveData();
         AudioListener.volume = muted ? 0 : 1;
         butonMusic.SetActive(false);
         buttonNoMusic.SetActive(true);
@@ -19,7 +32,9 @@ public class MutedButton : MonoBehaviour
  
     public void NoPauseSound()
     {
-        muted = ! muted;
+        muted = false;
+        GameState.gameState.isMuted = muted;
+        GameState.gameState.SaveData();
         AudioListener.volume = muted ? 0 : 1;
         butonMusic.SetActive(true);
         buttonNoMusic.SetActive(false);
