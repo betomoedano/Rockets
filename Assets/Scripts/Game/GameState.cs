@@ -4,6 +4,9 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Text;
+using UnityEngine.SocialPlatforms;
+using GooglePlayGames.BasicApi;
+using GooglePlayGames;
 
 
 public class GameState : MonoBehaviour
@@ -29,7 +32,7 @@ public class GameState : MonoBehaviour
         Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
         fileRute = Application.persistentDataPath + "/data.dat";
 
-        //Debug.Log(fileRute);
+        Debug.Log(fileRute);
         if(gameState == null)
         {
             gameState = this;
