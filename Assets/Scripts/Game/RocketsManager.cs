@@ -22,6 +22,7 @@ public class RocketsManager : MonoBehaviour
 
     void Start()
     {
+        AdManager.adsInstance.showBanner();
         unlockablePath = Application.persistentDataPath + "/Unlockeable.json";
         //Debug.Log(unlockablePath);
         if (File.Exists(unlockablePath))

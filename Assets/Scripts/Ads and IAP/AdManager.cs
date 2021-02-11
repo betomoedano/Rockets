@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
+using System.Collections;
 
 public class AdManager : MonoBehaviour, IUnityAdsListener
 {
@@ -9,15 +10,39 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
 
     private string interstitialAd = "video";
     private string rewardedVideoAd = "rewardedVideo";
+    private string banner = "bannerShop";
 
     public bool isTargetPlayStore;
     public bool isTestAd;
+
+    public static AdManager adsInstance;
+
+    private void Awake()
+    {
+        adsInstance = this;
+    }
 
     private void Start()
     {
         Advertisement.AddListener(this);
         InitializeAdvertisement();
     }
+
+    public void showBanner()
+    {
+        StartCoroutine(ShowBannerWhenReady());  
+    }
+
+    IEnumerator ShowBannerWhenReady()
+    {
+        while (!Advertisement.IsReady(banner))
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+        Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+        Advertisement.Banner.Show(banner);
+    }
+    
 
     private void InitializeAdvertisement()
     {

@@ -26,7 +26,7 @@ public class UpdatterGameOver : MonoBehaviour
         {
             GameState.gameState.bestFly = points.distanceInt;
             GameState.gameState.SaveData();
-            PlayServices.googleServices.AddScoreToLeaderboard((int)GameState.gameState.bestFly);
+            //PlayServices.googleServices.AddScoreToLeaderboard((int)GameState.gameState.bestFly);
             //if (PlayServices.googleServices.isConnectedToGooglePlayServices)
             //{
             //    Social.ReportScore((int)GameState.gameState.bestFly, "CgkIm_nJqtsKEAIQAg", (success) =>
