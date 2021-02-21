@@ -10,6 +10,10 @@ TagManager:
   - shield
   - Clock
   - Lasik
+  - Panel
+  - Nuclear
+  - Hole
+  - Magnet
   layers:
   - Default
   - TransparentFX

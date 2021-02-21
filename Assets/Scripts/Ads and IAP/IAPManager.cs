@@ -7,6 +7,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 {
     public static IAPManager instance;
     public Unlockable unlockable;
+    public static bool hasRestoredPurchases;
 
 
     private static IStoreController m_StoreController;
@@ -159,8 +160,9 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
             var apple = m_StoreExtensionProvider.GetExtension<IAppleExtensions>();
             apple.RestoreTransactions((result) => {
-                Debug.Log("RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore.");
-            });
+            hasRestoredPurchases = true;
+            Debug.Log("RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore.");
+        });
         }
         else
         {

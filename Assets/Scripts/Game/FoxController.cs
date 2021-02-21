@@ -7,6 +7,7 @@ public class FoxController : MonoBehaviour {
 
     public float jumpForce = 5f;
     public float speed = 10f;
+    public float rotationSpeed = 45f;
     private Rigidbody2D rb2D;
     public static bool moving = false;
     public static string currentSkin = "Rocket-2";
@@ -22,9 +23,18 @@ public class FoxController : MonoBehaviour {
     public bool takingAway = false;
     public bool triggerClock = false;
     public bool taptoplay = false;
+    public ParticleSystem explotionParticles;
+
+    public static FoxController foxControllerInstance;
+    public int clockCollected = 0;
+    public int nuclearCollected = 0;
+    public Text clockCounter, nuclear;
+
+
 
     private void Awake()
     {
+        foxControllerInstance = this;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -37,31 +47,33 @@ public class FoxController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "shield")
+        if(collision.CompareTag("shield"))
         {
             shield.SetActive(true);
             Destroy(collision.gameObject);
             shieldOn = true;
         }
-        if(collision.tag == "Clock")
+        if(collision.CompareTag("Clock"))
         {
-
-            FindObjectOfType<AudioManager>().Play("ticktock2");
             Destroy(collision.gameObject);
-            timer.SetActive(true);
-            triggerClock = true;
+            clockCollected++;
+            clockCounter.text = clockCollected.ToString();
         }
-        // if(collision.tag == "Lasik")
-        // {
-        //     DestroyAllGameObjects("Clock");
-        //     DestroyAllGameObjects("Missile");
-        //     DestroyAllGameObjects("Coin");
-        //     Instantiate(explotion, collision.transform.position, Quaternion.identity);
-        //     Time.timeScale = 1f;
-        //     NotificationCenter.DefaultCenter().PostNotification(this, "CharacterHasDead");
-        //     GameObject character = GameObject.Find("Character");
-        //     character.SetActive(false);
-        // }
+        if (collision.CompareTag("Nuclear"))
+        {
+            Destroy(collision);
+            nuclearCollected++;
+            nuclear.text = nuclearCollected.ToString();
+        }
+    }
+
+    public void ClockButtonPressed()
+    {
+        clockCollected--;
+        clockCounter.text = clockCollected.ToString();
+        FindObjectOfType<AudioManager>().Play("ticktock2");
+        timer.SetActive(true);
+        triggerClock = true;
     }
 
     public void DestroyAllGameObjects(string tag)
@@ -116,7 +128,6 @@ public class FoxController : MonoBehaviour {
             startCoroutine();
         }
 
-
         aux = (int)transform.position.x;
         if(aux > 300){speed = 12f;}
         if(aux > 600){speed = 15f;}
@@ -125,11 +136,9 @@ public class FoxController : MonoBehaviour {
 
         if (Input.GetMouseButton(0))
         {
-            transform.eulerAngles = new Vector3(0, 0, rb2D.velocity.y * 150 * Time.deltaTime);
-            //transform.Rotate(Vector3.forward * 30 * Time.deltaTime);
-            //this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Ring");   
             if (moving)
-            {      
+            {
+                RotateUp();
                 rb2D.isKinematic = false;
                 rb2D.velocity = new Vector3(speed, 0, 0);
                 Vector2 movement = new Vector2(0, 1);
@@ -142,11 +151,20 @@ public class FoxController : MonoBehaviour {
             }           
             moving = true;
         }
-        
-        if(! Input.GetMouseButton(0))
+        else
         {
-            //transform.Rotate(Vector3.back * 10 * Time.deltaTime);
-            transform.eulerAngles = new Vector3(0, 0, rb2D.velocity.y * 2 );
+            RotateDown();
         }
+    }
+
+
+    void RotateDown()
+    {
+        transform.eulerAngles = new Vector3(0, 0, -10 * rotationSpeed * Time.deltaTime);
+    }
+
+    void RotateUp()
+    {
+        transform.eulerAngles = new Vector3(0, 0, 10 * rotationSpeed * Time.deltaTime);
     }
 }

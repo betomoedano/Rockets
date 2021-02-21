@@ -60,4 +60,10 @@ public class PausedMenu : MonoBehaviour
         Time.timeScale = 1f;
         FoxController.moving = false;
     }
+    public void RestartSceneFromAdWatched()
+    {
+        FindObjectOfType<AudioManager>().Play("tap");
+        SceneManager.LoadScene("MainScene");
+        FoxController.moving = false;
+    }
 }

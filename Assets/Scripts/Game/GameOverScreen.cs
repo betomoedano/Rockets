@@ -7,7 +7,7 @@ public class GameOverScreen : MonoBehaviour
 {
     public GameObject camaraGameOver;
     public GameObject startMenu;
-    public GameObject pauseButton;
+    public GameObject pauseButton, clockButton, nuclearButton;
     public Animator transition;
    
     // Start is called before the first frame update
@@ -20,6 +20,8 @@ public class GameOverScreen : MonoBehaviour
         camaraGameOver.SetActive(true);
         FoxController.moving = false;
         pauseButton.SetActive(false);
+        clockButton.SetActive(false);
+        nuclearButton.SetActive(false);
     } 
 
 

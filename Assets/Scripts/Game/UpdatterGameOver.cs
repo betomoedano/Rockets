@@ -8,7 +8,11 @@ using UnityEngine.SocialPlatforms;
 
 public class UpdatterGameOver : MonoBehaviour
 {
-    
+    string reach500Meters = "reach500Meters";
+    string reach1000Meters = "reach1000Meters";
+    string reach1500Meters = "reach1500Meters";
+    string reach2000Meters = "reach2000Meters";
+
     public Text actual;
     public Text youFlew;
     public Text bestFly;
@@ -26,6 +30,7 @@ public class UpdatterGameOver : MonoBehaviour
         {
             GameState.gameState.bestFly = points.distanceInt;
             GameState.gameState.SaveData();
+            GameCenter.gameCenterInstance.AddScoreToLeaderboard(GameState.gameState.bestFly);
             //PlayServices.googleServices.AddScoreToLeaderboard((int)GameState.gameState.bestFly);
             //if (PlayServices.googleServices.isConnectedToGooglePlayServices)
             //{
@@ -44,6 +49,23 @@ public class UpdatterGameOver : MonoBehaviour
         bestFly.text = GameState.gameState.bestFly.ToString(); 
         actual.text = points.points.ToString();
         RefreshTotalScore();
+
+        if(GameState.gameState.bestFly >= 500)
+        {
+            GameCenter.gameCenterInstance.ReportAchievement(reach500Meters);
+        }
+        if (GameState.gameState.bestFly >= 1000)
+        {
+            GameCenter.gameCenterInstance.ReportAchievement(reach1000Meters);
+        }
+        if (GameState.gameState.bestFly >= 1500)
+        {
+            GameCenter.gameCenterInstance.ReportAchievement(reach1500Meters);
+        }
+        if (GameState.gameState.bestFly >= 2000)
+        {
+            GameCenter.gameCenterInstance.ReportAchievement(reach2000Meters);
+        }
     }
 
     public void RefreshTotalScore()

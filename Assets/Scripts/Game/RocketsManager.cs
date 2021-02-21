@@ -166,6 +166,8 @@ public class RocketsManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("tap");
         if(IAPManager.hasPurchasedPack1 == true)
         {
+            scrollView.SetActive(false);
+            purchaseSucces.SetActive(true);
             skinPack1.color = new Color(255,255,255);
             unlockable.hasPack1 = true;
             FoxController.currentSkin = "GOLDEN10";
@@ -178,6 +180,8 @@ public class RocketsManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("tap");
         if(IAPManager.hasPurchasedPack2 == true)
         {
+            scrollView.SetActive(false);
+            purchaseSucces.SetActive(true);
             skinPack2.color = new Color(255,255,255);
             unlockable.hasPack2 = true;
             FoxController.currentSkin = "Golden";

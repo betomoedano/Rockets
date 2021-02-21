@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class checkbuttonManager : MonoBehaviour
 {
     public string thisSkin;
-    public Image image;
+    public Image image, marco;
 
     void Start () 
     {
-          image = GetComponent<Image>();
     }
     void Update()
     {
@@ -18,10 +17,12 @@ public class checkbuttonManager : MonoBehaviour
         tempColor.a = .5f;
         if(FoxController.currentSkin == thisSkin)
         {
+            marco.color = new Color(marco.color.r, marco.color.g, image.color.b, 1f);
             image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
         }
         else
         {
+            marco.color = new Color(marco.color.r, marco.color.g, image.color.b, .4f);
             image.color = new Color(image.color.r, image.color.g, image.color.b, .4f);
         }
     }

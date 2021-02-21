@@ -14,6 +14,9 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
 
     public bool isTargetPlayStore;
     public bool isTestAd;
+    public bool isShowingBanner;
+
+    public GameObject AdWatched;
 
     public static AdManager adsInstance;
 
@@ -33,6 +36,14 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         StartCoroutine(ShowBannerWhenReady());  
     }
 
+    public void HideBanner()
+    {
+        if(isShowingBanner == true)
+        {
+            Advertisement.Banner.Hide();
+        }
+    }
+
     IEnumerator ShowBannerWhenReady()
     {
         while (!Advertisement.IsReady(banner))
@@ -41,6 +52,7 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         }
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
         Advertisement.Banner.Show(banner);
+        isShowingBanner = true;
     }
     
 
@@ -122,5 +134,11 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         GameState.gameState.coins += coinsToReward;
         GameState.gameState.SaveData();
         Debug.Log("Reward 1000 coins");
+        GameObject[] panels = GameObject.FindGameObjectsWithTag("Panel");
+        for (int i = 0; i < panels.Length; i++)
+        {
+            panels[i].SetActive(false);
+        }
+        AdWatched.SetActive(true);
     }
 }

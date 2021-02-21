@@ -14,18 +14,12 @@ public class GameState : MonoBehaviour
     public int coins = 0;
     public int bestFly = 0;
     public bool isMuted = false;
+    public bool vibrate = true;
     //public string currentSkin;
 
     public static GameState gameState;
 
     private string fileRute;
-
-
-    void Start()
-    {
-        LoadData();
-    }
-
 
      void Awake()
     {
@@ -44,6 +38,15 @@ public class GameState : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        LoadData();
+        Application.targetFrameRate = 60;
+    }
+
+
+
+
     public void SaveData()
     {
         BinaryFormatter br = new BinaryFormatter();
@@ -52,6 +55,7 @@ public class GameState : MonoBehaviour
         coinsToSave.coins = coins;
         coinsToSave.bestFly = bestFly;
         coinsToSave.isMuted = isMuted;
+        coinsToSave.vibrate = vibrate;
         //coinsToSave.currentSkin = currentSkin;
 
         br.Serialize(file, coinsToSave);
@@ -70,6 +74,7 @@ public class GameState : MonoBehaviour
             coins = dataToSave.coins;
             bestFly = dataToSave.bestFly;
             isMuted = dataToSave.isMuted;
+            vibrate = dataToSave.vibrate;
             //currentSkin = dataToSave.currentSkin;
             file.Close();   
         }
@@ -78,6 +83,7 @@ public class GameState : MonoBehaviour
             coins = 0;
             bestFly = 0;
             isMuted = false;
+            vibrate = true;
             //currentSkin = null;
         }
            
@@ -90,5 +96,6 @@ class DataToSave
     public int coins;
     public int bestFly;
     public bool isMuted;
+    public bool vibrate;
     //public string currentSkin;
 }
