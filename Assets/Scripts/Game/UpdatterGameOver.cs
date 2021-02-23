@@ -18,10 +18,16 @@ public class UpdatterGameOver : MonoBehaviour
     public Text bestFly;
 
     public Points points;
+    public int collectedCoins;
+    public static UpdatterGameOver gameoverInstance;
 
     public GameObject score;
     public GameObject distance;
 
+    private void Start()
+    {
+        gameoverInstance = this;
+    }
     private void OnEnable()
     {
         score.SetActive(false);
@@ -46,23 +52,24 @@ public class UpdatterGameOver : MonoBehaviour
             //CloudOnceServices.instance.SubmitScoreToLeaderboard(GameState.gameState.bestFly);
         }
         youFlew.text = points.distanceInt.ToString();
-        bestFly.text = GameState.gameState.bestFly.ToString(); 
+        bestFly.text = GameState.gameState.bestFly.ToString();
+        collectedCoins = points.points;
         actual.text = points.points.ToString();
         RefreshTotalScore();
 
-        if(GameState.gameState.bestFly >= 500)
+        if(GameState.gameState.bestFly >= 500 && GameCenter.gameCenterInstance.isConnectedToGameCenter)
         {
             GameCenter.gameCenterInstance.ReportAchievement(reach500Meters);
         }
-        if (GameState.gameState.bestFly >= 1000)
+        if (GameState.gameState.bestFly >= 1000 && GameCenter.gameCenterInstance.isConnectedToGameCenter)
         {
             GameCenter.gameCenterInstance.ReportAchievement(reach1000Meters);
         }
-        if (GameState.gameState.bestFly >= 1500)
-        {
+        if (GameState.gameState.bestFly >= 1500 && GameCenter.gameCenterInstance.isConnectedToGameCenter)
+        {                                      
             GameCenter.gameCenterInstance.ReportAchievement(reach1500Meters);
-        }
-        if (GameState.gameState.bestFly >= 2000)
+        }                                      
+        if (GameState.gameState.bestFly >= 2000 && GameCenter.gameCenterInstance.isConnectedToGameCenter)
         {
             GameCenter.gameCenterInstance.ReportAchievement(reach2000Meters);
         }

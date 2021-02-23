@@ -10,13 +10,16 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
 
     private string interstitialAd = "video";
     private string rewardedVideoAd = "rewardedVideo";
+    private string collectedCoinsX5 = "collectedCoinsX5";
     private string banner = "bannerShop";
 
     public bool isTargetPlayStore;
     public bool isTestAd;
     public bool isShowingBanner;
 
-    public GameObject AdWatched;
+
+    public GameObject AdWatched,AdsX5Watched;
+    public Text coinsX5Text;
 
     public static AdManager adsInstance;
 
@@ -84,8 +87,17 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         Advertisement.Show(rewardedVideoAd);
     }
 
+    public void PlayCoinsX5Ad ()
+    {
+        if (!Advertisement.IsReady(collectedCoinsX5))
+        {
+            return;
+        }
+        Advertisement.Show(collectedCoinsX5);
+    }
+
     /// ////////////////////////////////////////////////////////////////////////////////////
-  
+
 
     public void OnUnityAdsReady(string placementId)
     {
@@ -117,7 +129,11 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
                 if (placementId == rewardedVideoAd)
                 {                   
                     RewardPlayer();
-                }           
+                }         
+                if(placementId == collectedCoinsX5)
+                {
+                    RewardCoinsX5();
+                }
                 if (placementId == interstitialAd) { Debug.Log("Intertitial Ad"); }               
                 break;
         }
@@ -140,5 +156,20 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
             panels[i].SetActive(false);
         }
         AdWatched.SetActive(true);
+    }
+
+    public void RewardCoinsX5()
+    {
+        int coinsToReward = UpdatterGameOver.gameoverInstance.collectedCoins * 5;
+        GameState.gameState.coins += coinsToReward;
+        GameState.gameState.SaveData();
+        Debug.Log("Coins to Reward" + coinsToReward);
+        GameObject[] panels = GameObject.FindGameObjectsWithTag("Panel");
+        for (int i = 0; i < panels.Length; i++)
+        {
+            panels[i].SetActive(false);
+        }
+        coinsX5Text.text = coinsToReward.ToString();
+        AdsX5Watched.SetActive(true);
     }
 }

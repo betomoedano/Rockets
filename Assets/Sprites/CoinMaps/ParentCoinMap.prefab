@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &5530523989758895748
 Rigidbody2D:
   serializedVersion: 4
@@ -293,6 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &7342056011418877912
 Rigidbody2D:
   serializedVersion: 4
@@ -10058,6 +10060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &1840412870478266356
 Rigidbody2D:
   serializedVersion: 4
@@ -10215,6 +10218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &1180652565034047638
 Rigidbody2D:
   serializedVersion: 4
@@ -19980,6 +19984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &7963452845308079968
 Rigidbody2D:
   serializedVersion: 4
@@ -20137,6 +20142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &4430865725380477658
 Rigidbody2D:
   serializedVersion: 4
@@ -25098,6 +25104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &8313379771068816273
 Rigidbody2D:
   serializedVersion: 4
@@ -30114,6 +30121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &6450968590482546889
 Rigidbody2D:
   serializedVersion: 4
@@ -39879,6 +39887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &8384356544592519866
 Rigidbody2D:
   serializedVersion: 4
@@ -54448,6 +54457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &2266860660743029119
 Rigidbody2D:
   serializedVersion: 4
@@ -54605,6 +54615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &7899153573578274436
 Rigidbody2D:
   serializedVersion: 4
@@ -54762,6 +54773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &5647657639495658716
 Rigidbody2D:
   serializedVersion: 4
@@ -54919,6 +54931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &334839080247826303
 Rigidbody2D:
   serializedVersion: 4
@@ -59880,6 +59893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &8745445588763298076
 Rigidbody2D:
   serializedVersion: 4
@@ -64841,6 +64855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &109651469649606251
 Rigidbody2D:
   serializedVersion: 4
@@ -64998,6 +65013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &5169907008127498831
 Rigidbody2D:
   serializedVersion: 4
@@ -89175,6 +89191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &6059426275722886249
 Rigidbody2D:
   serializedVersion: 4
@@ -94136,6 +94153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &4492240170994645705
 Rigidbody2D:
   serializedVersion: 4
@@ -99097,6 +99115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &3749855926110498487
 Rigidbody2D:
   serializedVersion: 4
@@ -104058,6 +104077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &7535119626901014364
 Rigidbody2D:
   serializedVersion: 4
@@ -104215,6 +104235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &5572717530550819524
 Rigidbody2D:
   serializedVersion: 4
@@ -113980,6 +114001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &655488499072118599
 Rigidbody2D:
   serializedVersion: 4
@@ -123745,6 +123767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &1826795690152478543
 Rigidbody2D:
   serializedVersion: 4
@@ -123902,6 +123925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &7200895458646770046
 Rigidbody2D:
   serializedVersion: 4
@@ -124059,6 +124083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
+  atractionSpeed: 25
 --- !u!50 &3396869630204762465
 Rigidbody2D:
   serializedVersion: 4

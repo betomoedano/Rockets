@@ -17,7 +17,7 @@ public class PowerButtonsManager : MonoBehaviour
     }
     private void Update()
     {
-        if(FoxController.foxControllerInstance.nuclearCollected == 0)
+        if (FoxController.foxControllerInstance.nuclearCollected == 0)
         {
             spriteColor.SetActive(false);
         }
@@ -49,6 +49,7 @@ public class PowerButtonsManager : MonoBehaviour
 
     IEnumerator PopUp()
     {
+
         PopUpNotCoins.SetActive(true);
         yield return new WaitForSeconds(1);
         PopUpNotCoins.SetActive(false);

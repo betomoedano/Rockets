@@ -82,7 +82,15 @@ public class GameCenter : MonoBehaviour
         {
             Social.ReportProgress(achievementId, 100, (result) =>
             {
-                Debug.Log(result ? "Reported achievement" : "Failed to report achievement");
+                if (result)
+                {
+                    isConnectedToGameCenter = true;
+                    Debug.Log("User connected to gamecenter");
+                }
+                else
+                {
+                    Debug.Log("User NOT connected to gamecenter");
+                }
             });
         }
     }

@@ -136,8 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: 0
   magnet: 0
-  characterTransform: {fileID: 1842735489515258282, guid: 3d8d9a181fe2cc5469bef0501f44ed8a,
-    type: 3}
+  atractionSpeed: 20
 --- !u!50 &3340070486834027015
 Rigidbody2D:
   serializedVersion: 4

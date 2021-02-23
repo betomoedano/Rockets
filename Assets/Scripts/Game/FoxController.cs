@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class FoxController : MonoBehaviour {
 
     public float jumpForce = 5f;
     public float speed = 10f;
     public float rotationSpeed = 45f;
-    private Rigidbody2D rb2D;
+    public Rigidbody2D rb2D;
     public static bool moving = false;
     public static string currentSkin = "Rocket-2";
     public static bool shieldOn = false;
@@ -18,7 +19,7 @@ public class FoxController : MonoBehaviour {
     public GameObject shield;
 
     public Text timerText;
-    public GameObject timer;
+    public GameObject timer, magnet;
     float secondsLeft = 3f;
     public bool takingAway = false;
     public bool triggerClock = false;
@@ -29,7 +30,8 @@ public class FoxController : MonoBehaviour {
     public int clockCollected = 0;
     public int nuclearCollected = 0;
     public Text clockCounter, nuclear;
-
+    public Button clockButton;
+    public bool clicked;
 
 
     private void Awake()
@@ -53,18 +55,17 @@ public class FoxController : MonoBehaviour {
             Destroy(collision.gameObject);
             shieldOn = true;
         }
-        if(collision.CompareTag("Clock"))
+        if(collision.CompareTag("Hole"))
         {
-            Destroy(collision.gameObject);
-            clockCollected++;
-            clockCounter.text = clockCollected.ToString();
+            StartCoroutine(MagnetSwitch());
         }
-        if (collision.CompareTag("Nuclear"))
-        {
-            Destroy(collision);
-            nuclearCollected++;
-            nuclear.text = nuclearCollected.ToString();
-        }
+    }
+
+    IEnumerator MagnetSwitch()
+    {
+        magnet.SetActive(true);
+        yield return new WaitForSeconds(12);
+        magnet.SetActive(false);
     }
 
     public void ClockButtonPressed()
@@ -96,13 +97,15 @@ public class FoxController : MonoBehaviour {
 
     IEnumerator TimerClock()
     {
+        clockButton.interactable = false;
         Time.timeScale = .5f;
         takingAway = true;
         yield return new WaitForSeconds(1);
         secondsLeft -= 1;
         timerText.text = secondsLeft.ToString();
         takingAway = false;
-        if(secondsLeft == 0)
+        clockButton.interactable = true;
+        if (secondsLeft == 0)
         {
             Time.timeScale = 1f;
             triggerClock = false;
@@ -113,7 +116,7 @@ public class FoxController : MonoBehaviour {
         }
     }
 
-    void TapToPlay()
+    public void TapToPlay()
     {
         rb2D.constraints = RigidbodyConstraints2D.None;
         rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -136,28 +139,41 @@ public class FoxController : MonoBehaviour {
 
         if (Input.GetMouseButton(0))
         {
-            if (moving)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
             {
-                RotateUp();
-                rb2D.isKinematic = false;
-                rb2D.velocity = new Vector3(speed, 0, 0);
-                Vector2 movement = new Vector2(0, 1);
-                rb2D.AddForce(movement * jumpForce);
+                if (!IsPointerOverUIObject())
+                {
+                    if (moving)
+                    {
+                        RotateUp();
+                        rb2D.isKinematic = false;
+                        rb2D.velocity = new Vector3(speed, 0, 0);
+                        Vector2 movement = new Vector2(0, 1);
+                        rb2D.AddForce(movement * jumpForce);
+                    }
+                    else
+                    {
+                        StartRunning();
+                        clicked = true;
+                    }
+                    moving = true;
+                }
             }
-            else{
-                moving = true;
-                Vector2 movement = new Vector2(0, 0);
-                rb2D.AddForce(movement * speed);
-            }           
-            moving = true;
         }
         else
         {
             RotateDown();
         }
     }
-
-
+   
+    public void StartRunning()
+    {
+        Vector2 movement = new Vector2(0, 0);
+        rb2D.AddForce(movement * speed);
+        moving = true;
+    }
     void RotateDown()
     {
         transform.eulerAngles = new Vector3(0, 0, -10 * rotationSpeed * Time.deltaTime);
@@ -167,4 +183,14 @@ public class FoxController : MonoBehaviour {
     {
         transform.eulerAngles = new Vector3(0, 0, 10 * rotationSpeed * Time.deltaTime);
     }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
+    }
 }
+

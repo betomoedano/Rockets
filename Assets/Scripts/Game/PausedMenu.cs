@@ -7,7 +7,7 @@ public class PausedMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pausedMenu;
-    public GameObject gameOverMenu;
+    public GameObject gameOverMenu, nuclearButton, clockButton;
 
 
     private void Start()
@@ -28,6 +28,8 @@ public class PausedMenu : MonoBehaviour
     }
     public void Resume()
     {
+        nuclearButton.SetActive(true);
+        clockButton.SetActive(true);
         FindObjectOfType<AudioManager>().Play("tap");
         pausedMenu.SetActive(false);
         Time.timeScale = 1f;
@@ -35,6 +37,8 @@ public class PausedMenu : MonoBehaviour
     }
     public void Paused()
     {
+        nuclearButton.SetActive(false);
+        clockButton.SetActive(false);
         FindObjectOfType<AudioManager>().Mute("ticktock2");
         FindObjectOfType<AudioManager>().Play("tap");
         Time.timeScale = 0f;

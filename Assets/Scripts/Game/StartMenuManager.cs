@@ -11,9 +11,11 @@ public class StartMenuManager : MonoBehaviour
     public GameObject score;
     public GameObject distance;
     public GameObject clockButton, nuclearButton;
-
+   
     private void OnMouseDown()
     {
+        FoxController.foxControllerInstance.TapToPlay();
+        FoxController.moving = true;
         NotificationCenter.DefaultCenter().PostNotification(this, "TapToPlay");
         startScreen.SetActive(false);
         score.SetActive(true);
@@ -21,7 +23,6 @@ public class StartMenuManager : MonoBehaviour
         pauseButton.SetActive(true);
         clockButton.SetActive(true);
         nuclearButton.SetActive(true);
-        FoxController.moving = true;
-        Object.Destroy(boxCollider);
+        boxCollider.SetActive(false);
     }
 }

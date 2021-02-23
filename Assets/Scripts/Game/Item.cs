@@ -6,16 +6,13 @@ public class Item : MonoBehaviour{
 
     public bool trigger = false;
     public bool magnet = false;
-    Vector2 characterPosition;
-    Transform characterTransform;
     GameObject characterGO;
-    Rigidbody2D rbCoin;
-    float timeStamp;
+    public float atractionSpeed =25f;
+
     //public ParticleSystem coinParticles;
 
     public void Start()
     {
-        rbCoin = GetComponent<Rigidbody2D>();
         characterGO = GameObject.Find("Character");
     }
     public void OnTriggerEnter2D(Collider2D other)
@@ -33,7 +30,6 @@ public class Item : MonoBehaviour{
         if(other.CompareTag("Magnet"))
         {
             magnet = true;
-            timeStamp = Time.time;
         }
 
     }
@@ -42,8 +38,7 @@ public class Item : MonoBehaviour{
     {
         if(magnet)
         {
-            characterPosition = -(transform.position - characterGO.transform.position ).normalized;
-            rbCoin.velocity = new Vector2(characterPosition.x, characterPosition.y) * 50f * (Time.time/timeStamp);
+            transform.position = Vector3.MoveTowards(transform.position, characterGO.transform.position, atractionSpeed * Time.deltaTime);
         }
     }
 
